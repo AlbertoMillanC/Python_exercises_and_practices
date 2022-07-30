@@ -8,6 +8,16 @@
   width: calc(2 * var(--s) + var(--g));
   grid-auto-flow: column;
 }
+
+#container {
+  color: rgb(5, 65, 139);
+  font-family: 'Roboto', sans-serif;
+  text-align: center
+  }
+
+
+
+
 .gallery > img {
   width: 0;
   min-width: calc(100% + var(--z) / 2);
@@ -17,6 +27,10 @@
   mask: var(--mask);
   cursor: pointer;
   transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
 }
 .gallery > img:hover {
   width: calc(var(--s) / 2);
@@ -45,12 +59,17 @@
   gap: var(--g);
 }
 .gallery > img {
-  width: 100%; 
+  width: 100%;
   aspect-ratio: 1;
   cursor: pointer;
   filter: grayscale();
   z-index: 0;
   transition: .25s,z-index 0s .25s;
+  -webkit-transition: .25s,z-index 0s .25s;
+  -moz-transition: .25s,z-index 0s .25s;
+  -ms-transition: .25s,z-index 0s .25s;
+  -o-transition: .25s,z-index 0s .25s;
+  -webkit-filter: grayscale();
 }
 .gallery > img:hover {
   width: calc(200% + var(--g));
@@ -58,6 +77,11 @@
   z-index: 1;
   --_c: 50%;
   transition: .4s,z-index 0s;
+  -webkit-transition: .4s,z-index 0s;
+  -moz-transition: .4s,z-index 0s;
+  -ms-transition: .4s,z-index 0s;
+  -o-transition: .4s,z-index 0s;
+  -webkit-filter: grayscale(0);
 }
 .gallery > img:nth-child(1){
   clip-path: circle(var(--_c,65% at 70% 70%));
