@@ -7,6 +7,17 @@
   gap: var(--g);
   width: calc(2 * var(--s) + var(--g));
   grid-auto-flow: column;
+
+
+  #container {
+    color: rgb(5, 65, 139);
+    font-family: 'Roboto', sans-serif;
+    text-align: center
+    }
+  
+
+
+
 }
 .gallery > img {
   width: 0;
