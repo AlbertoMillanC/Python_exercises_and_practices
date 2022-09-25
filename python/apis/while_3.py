@@ -6,7 +6,7 @@ def new_func(n):
         i = i+2
     return a
     
-print (new_func())
+print (new_func(5))
 
     
    
