@@ -6,5 +6,10 @@ def saludo():
     yield "qué tal"
     yield "Alberto"
     
-def gene
+def generate_numbers():
+    for d1 in range(10):
+            for d2 in range(10):
+                    for d3 in range(10):
+                        yield (d1,d2,d3)
+
 
