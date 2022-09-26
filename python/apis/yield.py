@@ -11,7 +11,7 @@ try:
         
 
 
-    correct_paswords= (3,1,6)
+    correct_passwords= (3,1,6)
         
     def generate_numbers():
         for d1 in range(10):
@@ -21,7 +21,7 @@ try:
                             
                             
     for(a,b,c) in generate_numbers():
-        if(a,b,c) == correct_paswords:
+        if(a,b,c) == correct_passwords:
             print ("Is correct your password ")
             print(a,b,c)
             continue
