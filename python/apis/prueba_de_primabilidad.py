@@ -1,10 +1,10 @@
 
 #los multiplos de 2, 3, 5, 7 no son primos. el restante si lo es. de
-from mimetypes import init
+# from mimetypes import init
 import random
-import time
-import memory_profiler as mem_profile
-import argparse
+# import time
+# import memory_profiler as mem_profile
+# import argparse
 
 
 
@@ -13,7 +13,7 @@ try:
     #         def __init__(self, numero):
     #             self.numero = numero
             
-    # def person_list(n, numeros_) -> list:  
+    # def person_list(n, numeros_):  
     
     # w= int(input("Number of "))
     # y = int(input("Person "))
@@ -30,28 +30,28 @@ try:
         
     
     
-    # a= z
-    # b = a % 2 and a % 3 and a % 5 and a % 7
+    a= int(input("Agregar número para sabe si es primo  "))
+    b = a % 2 and a % 3 and a % 5 and a % 7
    
             
             
-    # def primos():
-    #     if b != 0:
-    #         print("Primos")                      
-    #     else:
-    #         print("Primos incorrect")
+    def primos():
+        if b != 0:
+            print(f" {a} es un número primo")                      
+        else:
+            print(f"{a} No es Primo")
             
    
     
     
-    # if __name__ == "__main__":
-    #     primos()
+    if __name__ == "__main__":
+        primos()
         
     
      
                   
 except:
-    print("Failed to interrupt")
+    print("Agregue solamente números enteros por favor")
     
                     
                     
