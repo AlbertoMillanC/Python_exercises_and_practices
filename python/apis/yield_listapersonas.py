@@ -81,7 +81,8 @@ def make_parser():
                         help='could be "choice" or "other"')
     args = parser.parse_args()
     if args.objects is None:
-        nop = 1000000
+        nop = 10
+        
     else:
         nop = args.objects
     if args.names is None:
@@ -99,7 +100,7 @@ def make_parser():
     print("your parameters are:")
     print("number of objects:", nop)
     print("names:", names)
-    print("ages:", ages)
+    # print("ages:", ages)
     print("choice:", choice)
 
     print()

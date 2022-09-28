@@ -1,32 +1,51 @@
 
 #los multiplos de 2, 3, 5, 7 no son primos. el restante si lo es. de
+from mimetypes import init
 import random
+import time
+import memory_profiler as mem_profile
+import argparse
+
 
 
 try:
+    # class numebers:
+    #         def __init__(self, numero):
+    #             self.numero = numero
+            
+    # def person_list(n, numeros_) -> list:  
+    
+    # w= int(input("Number of "))
+    # y = int(input("Person "))
    
-    class Show:
-
-        def __or__(self,primo):
-            for i in range(1):
-                print (random.randrange(0 ,10000))
+    
+    
+    
+    
+    # def generate():
+    #     for i in list(range(1)):
+    #         print (random.randrange(0,10000))
+           
+              
         
     
-    a= Show()
-    b = a % 2 and a % 3 and a % 5 and a % 7
-   
     
-    def primos():
-        if b != 0:
-            print("Primos")                      
-        else:
-            print("Primos incorrect")
+    # a= z
+    # b = a % 2 and a % 3 and a % 5 and a % 7
+   
+            
+            
+    # def primos():
+    #     if b != 0:
+    #         print("Primos")                      
+    #     else:
+    #         print("Primos incorrect")
             
    
     
     
-    if __name__ == "__main__":
-        primos()
+    # if __name__ == "__main__":
+    #     primos()
         
     
      
