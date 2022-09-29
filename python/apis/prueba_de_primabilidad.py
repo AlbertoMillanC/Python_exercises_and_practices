@@ -6,8 +6,6 @@ import random
 # import memory_profiler as mem_profile
 # import argparse
 
-
-
 try:
     # class numebers:
     #         def __init__(self, numero):
@@ -33,8 +31,6 @@ try:
             print(f" {a} es un número primo")
         else:
             print(f"{a} No es Primo")
-            
-   
     
     
     if __name__ == "__main__":
