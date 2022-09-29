@@ -18,26 +18,19 @@ try:
     # w= int(input("Number of "))
     # y = int(input("Person "))
    
-    
-    
-    
-    
     # def generate():
     #     for i in list(range(1)):
     #         print (random.randrange(0,10000))
-           
-              
-        
-    
-    
+     
     a= int(input("Agregar número para sabe si es primo  "))
     b = a % 2 and a % 3 and a % 5 and a % 7
-   
-            
+     
             
     def primos():
-        if b != 0:
-            print(f" {a} es un número primo")                      
+        if b == 1:
+          print(f" {a} NO un número primo")  
+        elif  b != 0:
+            print(f" {a} es un número primo")
         else:
             print(f"{a} No es Primo")
             

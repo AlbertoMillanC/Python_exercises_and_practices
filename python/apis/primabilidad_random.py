@@ -6,7 +6,7 @@ try:
     
     
     
-    a = (random.randint(0,100000000))
+    a = (random.randint(2,100000000))
     b = a % 2 and a % 3 and a % 5 and a % 7
    
          
