@@ -2,16 +2,34 @@ import random
 
 
 try:
-
-    a = (random.randint(2, 100000000))
-    b = a % 2 and a % 3 and a % 5 and a % 7
-
+    
+    
+    counter = (random.randint(0,1000g))
     def primos():
-        if b != 0:
-            print(f"El número {a} SI un número primo")
-
+        for i in range(2, counter ):
+            if counter % i == 0:
+                print("El numero", counter, "NO es primo")
+                break
         else:
-            print(f"El número {a} NO es Primo")
+            print("El numero", counter, " SI es primo")
+    # for i in range (1,counter +1):
+    #     print(i)
+    #     if i % 2 == 0:
+    #         print("No es primo")
+    #     else:
+    #         print("Es primo")
+        
+    
+    # print (validation, counter)
+    
+    # def primos():
+    #     if validation != 0:
+    #         print(f"El número {counter} SI un número primo")
+    #     elif counter == 2 or counter == 3 or counter == 5 or counter == 7:
+    #         print(f"El número {counter} SI un número primo")
+
+    #     else:
+    #         print(f"El número {counter} NO es Primo")
 
     if __name__ == "__main__":
         primos()
