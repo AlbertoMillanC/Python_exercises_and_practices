@@ -4,7 +4,7 @@ import random
 try:
     
     
-    counter = (random.randint(0,1000g))
+    counter = (random.randint(0,1000))
     def primos():
         for i in range(2, counter ):
             if counter % i == 0:
