@@ -32,12 +32,12 @@ dfT, maxi = new_func1(df)
 def new_func2(dfT, maxi):
     np.where(dfT == maxi)
     greater_than = np.where(dfT == maxi)
-    period = (greater_than[0][1])
-    return period
+    P = (greater_than[0][1])
+    return P
 
-Period = new_func2(dfT, maxi)
+P = new_func2(dfT, maxi)
 
-print("the produces greater than ", df[period][0], "and it occurred in the month Total", df[period][1])
+print("the produces greater than ", df[P][0], "and it occurred in the month Total", df[P][1])
 
 # semestre de menor produces.
 semester_period_1 = produces.head(6).sum()
@@ -49,7 +49,7 @@ print("the produces of the semester period two was  ", semester_period_2)
 #months where more than 50 airs occurreddfT 
    
 
-dfT[dfT["period"] > 50]
+dfT[dfT["P"] > 50]
 
 # average odd months
 
@@ -58,8 +58,8 @@ print("average odd months", averageI)
 
 # months where production exceeded the average
 
-averagePeriod= dfT["P"].mean()
-dfT[dfT["period"] > averageP]
+prome_P= dfT["P"].mean()
+dfT[dfT["P"] > prome_P]
 
 # graphic
-plt.plot(dfT["period"], dfT["M"])
+plt.plot(dfT["P"], dfT["M"])
