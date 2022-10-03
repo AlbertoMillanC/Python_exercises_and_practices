@@ -1,4 +1,3 @@
-import random
 import requests
 import json
 import pandas as pd
