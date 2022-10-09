@@ -1,17 +1,15 @@
 #funcion para encotrar un numero maximo de una lista
+try:
+        def find_max(nums):
+                max_num = float("-inf")
+                for i in nums:
+                        if i > max_num:
+                                max_num = i                                
+                return max_num
 
-def find_max(nums):
-        max_num = float("-inf")
-       
-        # smaller than all other numbers
-        for i in nums:
-                if i > max_num:
-                        max_num = i                                  # (Fill in the missing line here)
-        return max_num
-nums = [2,10,7,4,6]
-__name__ == "__main__"  
-find_max(nums)
-# num = max_num
-# max_num += 1
-# max_num = num
-# max_num += num
+
+        __name__ == "__main__"  
+        find_max(nums = [2.8,3.53,4.5,78.8,12.8,1.8,2.7,555.5])
+except Exception as e:
+        print("404")
+        print(e)
