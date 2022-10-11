@@ -3,7 +3,7 @@ from msilib.schema import Class
 
 
 try:
-    Class nums ():
+    
             
     
     float = [2.8,3.53,4.5,78.8,12.8,1.8,2.7,555.5]
