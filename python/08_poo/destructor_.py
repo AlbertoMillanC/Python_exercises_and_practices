@@ -22,3 +22,6 @@ try:
 
 except Exception:
     print("Error")
+    
+finally:
+    print("Fin del programa")
