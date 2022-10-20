@@ -3,7 +3,7 @@ import markdown
 import os
 import shelve
 
-from flask import Flask, (__name__)
+from flask import Flask,(__name__)
 
 def get_db():
     db = getattr(g, 'database', None)
