@@ -1,4 +1,4 @@
-# Test and exercise the Python
+# Test and exercises in  Python
 
 ## Exercises and practice
 
