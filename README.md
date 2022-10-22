@@ -1,11 +1,11 @@
-# test
+# Test and exercise the Python
 
-## Ejercicio GIT NIVEL PRO
+## Exercises and practice
 
-### Ejercicio GIT NIVEL PRO
+### API
 
-#### Ejercicio GIT NIVEL PRO
+#### WEEKLY PRACTICE
 
-##### Ejercicio GIT NIVEL PRO
+##### BOT AND IA
 
-###### Ejercicio GIT NIVEL PRO
+###### MATHEMATICS EXERCISES AND DATA SCIENCE
