@@ -2,11 +2,11 @@ import tempfile
 
 
 if __name__== "__main__":
-        temp = tempfile.TemporaryFile()  # ('w+t')
+        temp = tempfile.TemporaryFile('w+t')  # ('w+t')
         
         try:
-            temp.write(b'Hello World!.\n')
-            temp.write(b'Testing...')
+            temp.write('Hello World!.\n')
+            temp.write('Testing...')
                       
             temp.seek(0)
             
