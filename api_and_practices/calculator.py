@@ -1,32 +1,12 @@
-from PySimpleGUI import *
+#"//how calculator in python +-*/ "?
+from tkinter import *
+import math
+import tkinter.messagebox
+root = Tk()
+root.title("Calculator")
+root.geometry("480x568+0+0")
+root.configure(background="powder blue")
+root.resizable(width=False, height=False)
 
-layout =[
-    [Text('0', key_=_'input')],
-
-    [ReadFormButton('1'), ReadFormButton('2'), ReadFormButton('3'), ReadFormButton('+')],
-    
-    [ReadFormButton('4'), ReadFormButton('5'), ReadFormButton('6'), ReadFormButton('-')],
-    
-    [ReadFormButton('7'), ReadFormButton('8'), ReadFormButton('9'), ReadFormButton('*')],
-    
-    [ReadFormButton('0'), ReadFormButton('.'), ReadFormButton('='), ReadFormButton('/')],
-    
-    windows = FlexForm('Calculator')
-    
-    
-    windows.Layout(layout)
-    while True:
-        button, values = windows.Read()
-        if button is None:
-            break
-        print(button, values)
-    windows.Close()
-    
-    if buttin == 'Exit' or button is None:
-    windows.close()
-    
-    result = 0
-    
-    
-          
- 
+calculator = Frame(root)
+calculator.grid()
