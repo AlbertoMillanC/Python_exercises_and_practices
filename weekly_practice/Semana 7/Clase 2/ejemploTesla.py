@@ -1,4 +1,5 @@
-import csv
+import csv 
+
 
 #alto si el valor de apertura fue mayor a 500
 #bajo si el valor de apertura fue menor a 300
