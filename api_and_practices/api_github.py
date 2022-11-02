@@ -1,5 +1,6 @@
-# aleatory name for the file
+# aleatory name for the file in github
 # import the module
+import pandas as pd
 import requests
 # define the url
 url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
@@ -40,11 +41,5 @@ for repo_dict in repo_dicts:
     print("Description:", repo_dict['description'])
 # print the number of repositories
 print("Number of repositories:", len(repo_dicts))
-# print the number of repositories
-print("Number of repositories:", len(repo_dicts))
-# print the number of repositories
-print("Number of repositories:", len(repo_dicts))
-# print the number of repositories
-print("Number of repositories:", len(repo_dicts))
-# print the number of repositories
-print("Number of repositories:", len(repo_dicts))
+
+
