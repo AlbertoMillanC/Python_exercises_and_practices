@@ -9,7 +9,7 @@ from tkinter import messagebox
 class cube(object):
     rows = 20
     w = 500
-    def __init__(self,start,dirnx=1,dirny=0,color=(255,0,0)):
+    def __init__(self,start,dirnx=1,dirny=0,color=(25,200,21)):
         self.pos = start
         self.dirnx = 1
         self.dirny = 0
@@ -134,7 +134,7 @@ def drawGrid(w, rows, surface):
         x = x + sizeBtwn
         y = y + sizeBtwn
  
-        pygame.draw.line(surface, (255,255,255), (x,0),(x,w))
+        pygame.draw.line(surface, (2,255,255), (x,0),(x,w))
         pygame.draw.line(surface, (255,255,255), (0,y),(w,y))
  
  
@@ -178,8 +178,8 @@ def main():
     width = 500
     rows = 20
     win = pygame.display.set_mode((width, width))
-    s = snake((255,0,0), (10,10))
-    snack = cube(randomSnack(rows, s), color=(0,255,0))
+    s = snake((255,0,200), (10,10))
+    snack = cube(randomSnack(rows, s), color=(255,255,0))
     flag = True
  
     clock = pygame.time.Clock()
