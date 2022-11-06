@@ -3,12 +3,13 @@ from selenium import webdriver
 
 ob = Screenshot.Screenshot()
 driver = webdriver.Chrome()
-url = "https://github.com/sam4u3"
+url = "https://github.com/sam4u3/Selenium_Screenshot/blob/master/Screenshot/Screenshot_Clipping.py"
 driver.get(url)
-Hide_elements = ['class=avatar width-full height-full avatar-before-user-status']  # Use full class name
-img_url = ob.full_Screenshot(driver, save_path=r'.', elements=Hide_elements, image_name='Myimage.png')
+
+element = driver.find_element_by_class_name('signup-prompt')
+img_url = ob.get_element(driver, element, r'.')
 print(img_url)
+
 driver.close()
 
 driver.quit()
-
