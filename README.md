@@ -1,11 +1,13 @@
-# Test and exercises in  Python
+## Python exercises
 
-## Exercises and practice
+#### all the themes
 
-### API
+```http
+  albertomillan.co
+```
 
-#### WEEKLY PRACTICE
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | IA       | **Required**. API |
 
-##### BOT AND IA
-
-###### MATHEMATICS EXERCISES AND DATA SCIENCE
+Basic exercises. APIs, frameworks and AI.
