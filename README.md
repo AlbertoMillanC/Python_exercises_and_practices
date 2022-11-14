@@ -8,6 +8,6 @@
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `api_key` | IA       | **Required**. API |
+| `face mask` | IA       |  API |
 
 Basic exercises. APIs, frameworks and AI.
