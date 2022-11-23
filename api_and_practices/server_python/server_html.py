@@ -7,7 +7,7 @@ HTML = """
         <title>My First HTML server in python </title>
     </head>
     <body>
-        <h1>My First HTML server in python.</h1>
+        <h1>Hello World!. With python.</h1>
     </body>
 
 
