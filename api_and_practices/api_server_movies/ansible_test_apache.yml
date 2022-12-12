@@ -1,0 +1,35 @@
+---
+# This playbook installs and configures Apache and the mod_authnz_external module
+# for PAM authentication.
+
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Apache and mod_authnz_external
+      yum:
+        name:
+          - httpd
+          - mod_authnz_external
+        state: present
+        enablerepo: epel
+
+    - name: Configure Apache to use mod_authnz_external
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^#LoadModule authnz_external_module modules/mod_authnz_external.so'
+        line: 'LoadModule authnz_external_module modules/mod_authnz_external.so'
+
+    - name: Create the protected directory and configure Apache
+      file:
+        path: /var/www/html/protected
+        state: directory
+      lineinfile:
+        path: /etc/httpd/conf.d/authnz_external.conf
+        create: true
+        line: '<Directory /var/www/html/protected>
+                  AuthType Basic
+                  AuthName "PAM Authentication"
+                  AuthBasicProvider external
+                  AuthExternal pwauth
+                  require valid-user
+                </Directory>'
