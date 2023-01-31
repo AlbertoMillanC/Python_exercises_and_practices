@@ -1,7 +1,7 @@
 import csv
 
 # Nombre del archivo de texto
-text_file = 'file.txt'
+text_file = '.../file.txt'
 
 # Nombre del archivo CSV
 csv_file = 'file.csv'
