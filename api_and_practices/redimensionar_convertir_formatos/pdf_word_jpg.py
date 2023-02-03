@@ -12,3 +12,4 @@ for filename in os.listdir(folder):
         doc = docx.Document()
         doc.add_page_break()
         doc.save(docx_path)
+        
