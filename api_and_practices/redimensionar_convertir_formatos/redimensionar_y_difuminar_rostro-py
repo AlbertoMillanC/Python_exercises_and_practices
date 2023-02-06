@@ -9,7 +9,7 @@ for filename in os.listdir(folder):
         if filename.endswith(".jpg"):
             image = cv2.imread(os.path.join(folder, filename))
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            faces = face_detector.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=10, minSize=(100, 100))
+            faces = face_detector.detectMultiScale(gray, scaleFactor=1.01, minNeighbors=1, minSize=(100, 100))
 
             for (x,y,w,h) in faces:
                 roi_gray = gray[y:y+h, x:x+w]
