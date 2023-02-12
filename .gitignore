@@ -2,3 +2,4 @@
 env/
 api_key.txt
 entorno/
+.vscode/
