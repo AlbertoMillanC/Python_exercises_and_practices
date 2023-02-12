@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='estilos.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
   <title>Hora actual</title>
 </head>
-<body>
-  <h1>La hora actual es: {{ hora }}</h1>
+<body class="bg-zing-200" >
+  <h1 class="text-center w-full border border-gray-400 rounded-lg p-5 focus:outline-none" >La hora actual es: {{ hora }}</h1>
 </body>
 </html>
