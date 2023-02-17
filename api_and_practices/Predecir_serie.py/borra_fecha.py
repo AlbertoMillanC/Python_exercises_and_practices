@@ -1,7 +1,7 @@
 import csv
 
 # Abrir archivo de entrada
-with open("C:\\Users\\ASUS\\Desktop\\datos_del_sorteo.csv", "r") as f:
+with open("C:\\Users\\ASUS\\Desktop\\datos_boyaca.txt", "r") as f:
     reader = csv.reader(f)
     data = list(reader)
 

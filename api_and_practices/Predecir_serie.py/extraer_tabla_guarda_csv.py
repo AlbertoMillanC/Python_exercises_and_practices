@@ -1,6 +1,7 @@
+import csv
 import requests
 from bs4 import BeautifulSoup
-from tabulate import tabulate
+from prettytable import from_csv
 
 url = 'https://www.astroluna.co/boyaca'
 
@@ -33,9 +34,18 @@ for fila in filas:
         fila_datos.append(celda.text.strip())
     datos.append(fila_datos)
 
-# Guardar los datos en un archivo de texto en formato tabla
-with open('datos_boyaca.txt', 'w') as archivo_txt:
-    archivo_txt.write(tabulate(datos, headers=cabecera, tablefmt='psql'))
+# Guardar los datos en un archivo CSV
+with open('datos_boyaca.csv', mode='w', newline='') as archivo_csv:
+    writer = csv.writer(archivo_csv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    writer.writerow(cabecera)
+    for fila in datos:
+        writer.writerow(fila)
 
-print(f"Los datos se han guardado en {archivo_txt.name}")
+# Leer el archivo CSV y convertirlo en una tabla
+with open('datos_boyaca.csv', 'r') as archivo_csv:
+    tabla_csv = from_csv(archivo_csv)
 
+# Imprimir la tabla
+print(tabla_csv)
+
+print(f"Los datos se han guardado en {archivo_csv.name}")

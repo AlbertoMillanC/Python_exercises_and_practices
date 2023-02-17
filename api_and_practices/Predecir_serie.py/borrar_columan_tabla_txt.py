@@ -39,3 +39,15 @@ with open('datos_boyaca.txt', 'w') as archivo_txt:
 
 print(f"Los datos se han guardado en {archivo_txt.name}")
 
+
+
+
+
+# Eliminar la primera columna de la lista de datos (columna "fecha")
+datos_sin_fecha = [fila[1:] for fila in datos]
+
+# Guardar los datos en un archivo de texto en formato tabla
+with open('datos_boyaca.txt', 'w') as archivo_txt:
+    archivo_txt.write(tabulate(datos_sin_fecha, headers=cabecera[1:], tablefmt='psql'))
+
+print(f"Los datos se han guardado en {archivo_txt.name}")
