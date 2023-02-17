@@ -1,24 +1,43 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 url = 'https://www.astroluna.co/boyaca'
 
 # Realizar una solicitud a la página web y obtener el HTML
 response = requests.get(url)
+if response.status_code == 200:
+    print("Conexión exitosa")
+else:
+    print("Error al conectarse a la página web")
+    exit()
+
 html = response.content
 
 # Parsear el HTML usando beautifulsoup
 soup = BeautifulSoup(html, 'html.parser')
 
-# Encontrar la tabla que contiene los números con el valor "numeros"
-tabla_numeros = soup.find('table', {'id': 'numeros'})
+# Encontrar la tabla que contiene los números
+tabla = soup.find('table', {'id': 'tabla-resultados'})
 
-# Extraer los números de la tabla
-numeros = []
-filas = tabla_numeros.find_all('tr')
+# Extraer los nombres de las columnas
+cabecera = [th.text for th in tabla.find('thead').find_all('th')]
+
+# Extraer los datos de la tabla
+datos = []
+filas = tabla.find_all('tr')
 for fila in filas:
     celdas = fila.find_all('td')
-    if len(celdas) == 2 and celdas[1].text.strip() == "numeros":
-        numeros.extend(celdas[0].text.strip().split(','))
+    fila_datos = []
+    for celda in celdas:
+        fila_datos.append(celda.text.strip())
+    datos.append(fila_datos)
 
-print(numeros)
+# Guardar los datos en un archivo CSV
+with open('datos_boyaca.csv', mode='w', newline='') as archivo_csv:
+    writer = csv.writer(archivo_csv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    writer.writerow(cabecera)
+    for fila in datos:
+        writer.writerow(fila)
+
+print(f"Los datos se han guardado en {archivo_csv.name}")
