@@ -6,5 +6,5 @@ numeros = ['8942', '7121', '6822', '3137', '4797', '8562', '5908', '5694', '0069
 datos = {'numeros': numeros}
 
 # Guardar el diccionario en un archivo JSON
-with open('datos.json', 'w') as archivo:
+with open('datos_del_sorteo.json', 'w') as archivo:
     json.dump(datos, archivo)
