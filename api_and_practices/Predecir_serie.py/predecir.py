@@ -4,12 +4,12 @@ from sklearn.linear_model import LinearRegression
 
 def test_load_data():
     # cargar los datos del archivo de texto
-    datos = pd.read_csv('datos_del_sorteo.csv', delimiter=',')
+    datos = pd.read_csv('datos_del_sorteo_comas.csv', delimiter=',')
     assert datos is not None
 
 def test_split_data():
     # cargar los datos del archivo de texto
-    datos = pd.read_csv('datos_del_sorteo.csv', delimiter=',')
+    datos = pd.read_csv('datos_del_sorteo_comas.csv', delimiter=',')
 
     # dividir los datos en conjuntos de entrenamiento y prueba
     x_entrenamiento, x_prueba, y_entrenamiento, y_prueba = train_test_split(
@@ -22,7 +22,7 @@ def test_split_data():
 
 def test_create_model():
     # cargar los datos del archivo de texto
-    datos = pd.read_csv('datos_del_sorteo.csv', delimiter=',')
+    datos = pd.read_csv('datos_del_sorteo_comas.csv', delimiter=',')
 
     # dividir los datos en conjuntos de entrenamiento y prueba
     x_entrenamiento, x_prueba, y_entrenamiento, y_prueba = train_test_split(
@@ -36,7 +36,7 @@ def test_create_model():
 
 def test_make_prediction():
     # cargar los datos del archivo de texto
-    datos = pd.read_csv('datos_del_sorteo.csv', delimiter=',')
+    datos = pd.read_csv('datos_del_sorteo_comas.csv', delimiter=',')
 
     # dividir los datos en conjuntos de entrenamiento y prueba
     x_entrenamiento, x_prueba, y_entrenamiento, y_prueba = train_test_split(
