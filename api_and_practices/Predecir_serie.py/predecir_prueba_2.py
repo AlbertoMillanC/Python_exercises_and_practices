@@ -14,7 +14,7 @@ datos = datos.apply(pd.to_numeric)
 
 # dividir los datos en conjuntos de entrenamiento y prueba
 x_entrenamiento, x_prueba, y_entrenamiento, y_prueba = train_test_split(
-    datos.iloc[:-1], datos.iloc[1:], test_size=0.2, random_state=0)
+    datos.iloc[:-1], datos.iloc[1:], test_size=0.9, random_state=0)
 
 # crear y ajustar el modelo de regresión lineal
 modelo = LinearRegression()
