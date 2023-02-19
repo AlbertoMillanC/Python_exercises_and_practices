@@ -8,7 +8,7 @@ from keras.layers import LSTM, Dense
 with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
     data = json.load(f)
     
-print(data)
+
 
 
 # Preprocesar los datos
