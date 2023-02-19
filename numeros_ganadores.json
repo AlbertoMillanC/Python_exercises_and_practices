@@ -1,0 +1,16 @@
+{
+    "predicciones": [
+        {
+            "fecha_hora": "2023-02-18 21:49:26",
+            "prediccion": "998"
+        },
+        {
+            "fecha_hora": "2023-02-18 21:50:13",
+            "prediccion": "2256"
+        },
+        {
+            "fecha_hora": "2023-02-18 21:50:58",
+            "prediccion": "601"
+        }
+    ]
+}

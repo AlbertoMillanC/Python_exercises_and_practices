@@ -8,9 +8,12 @@ from datetime import datetime
 def guardar_prediccion(prediccion):
     fecha_hora = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     prediccion_str = str(round(prediccion[0][0]))
-    with open('prediccion.txt', 'a') as f:
-        f.write(f'Fecha y hora: {fecha_hora}\n')
-        f.write(f'Predicción: {prediccion_str}\n')
+    with open('numeros_ganadores.json', 'r') as f:
+        data = json.load(f)
+    predicciones = data.get('predicciones', [])
+    predicciones.append({'fecha_hora': fecha_hora, 'prediccion': prediccion_str})
+    with open('numeros_ganadores.json', 'w') as f:
+        json.dump({'predicciones': predicciones}, f, indent=4)
 
 # Cargar datos del archivo JSON
 with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
@@ -58,4 +61,4 @@ prediccion = prediccion * 9999
 
 print('Predicción: %d' % prediccion)
 
-guardar_prediccion(prediccion)
+guardar_prediccion(prediccion)  
