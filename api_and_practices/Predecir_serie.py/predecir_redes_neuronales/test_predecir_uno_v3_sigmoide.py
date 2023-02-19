@@ -11,7 +11,7 @@ def guardar_prediccion(prediccion):
     with open('numeros_ganadores.json', 'r') as f:
         data = json.load(f)
     predicciones = data.get('predicciones', [])
-    predicciones.append({'fecha_hora': fecha_hora, 'prediccion': prediccion_str})
+    predicciones.append({'fecha_hora': fecha_hora, 'prediccion model v3': prediccion_str})
     with open('numeros_ganadores.json', 'w') as f:
         json.dump({'predicciones': predicciones}, f, indent=4)
 
@@ -51,7 +51,7 @@ target_score = 9200
 
 # Entrenar el modelo
 for i in range(max_epochs):
-    modelo.fit(X, y, epochs=5, batch_size=10000, verbose=1)
+    modelo.fit(X, y, epochs=100, batch_size=10000, verbose=2)
     puntuacion = modelo.evaluate(X, y, verbose=0)
     print('Precisión del modelo en la época {}: {}'.format(i, puntuacion[1]))
     if puntuacion[1]*100 >= target_score:

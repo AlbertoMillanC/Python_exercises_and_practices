@@ -13,7 +13,7 @@ def guardar_prediccion(prediccion):
         data = json.load(f)
     predicciones = data.get('predicciones', [])
     predicciones.append(
-        {'fecha_hora': fecha_hora, 'prediccion': prediccion_str})
+        {'fecha_hora': fecha_hora, 'prediccion model v4': prediccion_str})
     with open('numeros_ganadores.json', 'w') as f:
         json.dump({'predicciones': predicciones}, f, indent=4)
 
@@ -24,7 +24,7 @@ with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros
 
 # Preprocesar los datos
 numeros = [int(x) for x in data['numeros']]
-secuencia_longitud = 10  # la longitud de la secuencia de entrada
+secuencia_longitud = 60  # la longitud de la secuencia de entrada
 X = []
 y = []
 for i in range(len(numeros) - secuencia_longitud):
@@ -63,12 +63,12 @@ X_validacion, y_validacion = X[idx_validacion], y[idx_validacion]
 
 # Entrenar el modelo
 for i in range(max_epochs):
-    modelo.fit(X_entrenamiento, y_entrenamiento, epochs=5, batch_size=10000,
-               verbose=1, validation_data=(X_validacion, y_validacion))
+    modelo.fit(X_entrenamiento, y_entrenamiento, epochs=100, batch_size=100,
+               verbose=2, validation_data=(X_validacion, y_validacion))
     puntuacion_entrenamiento = modelo.evaluate(
-        X_entrenamiento, y_entrenamiento, verbose=0)
+        X_entrenamiento, y_entrenamiento, verbose=3)
     puntuacion_validacion = modelo.evaluate(
-        X_validacion, y_validacion, verbose=0)
+        X_validacion, y_validacion, verbose=1)
     print('Precisión del modelo en la época {}: entrenamiento = {}, validación = {}'.format(
         i, puntuacion_entrenamiento[1], puntuacion_validacion[1]))
     if puntuacion_validacion[1]*100 >= target_score:
