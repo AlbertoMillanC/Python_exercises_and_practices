@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neural_network import MLPRegressor
 
 # Cargar el archivo JSON y convertirlo a un dataframe
-with open('numeros_ganadores.json', 'r') as f:
+with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
     data = json.load(f)
 
 df = pd.DataFrame(data)
