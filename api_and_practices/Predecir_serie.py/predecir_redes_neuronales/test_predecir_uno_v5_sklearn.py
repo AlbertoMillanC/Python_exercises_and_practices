@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 
 # Cargar el archivo JSON y convertirlo a un dataframe
-with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
+with open('numeros_ganadores.json', 'r') as f:
     data = json.load(f)
 
 df = pd.DataFrame(data)
