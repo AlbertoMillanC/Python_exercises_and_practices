@@ -4,12 +4,14 @@ from keras.models import Sequential
 from keras.layers import LSTM, Dense
 
 # Cargar datos del archivo JSON
-with open('numeros_ganadores.json') as f:
+with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
     data = json.load(f)
     
+print(data)
+    
 # Preprocesar los datos
-numeros = [int(x) for x in data['numeros_ganadores']]
-secuencia_longitud = 10  # la longitud de la secuencia de entrada
+numeros = [int(x) for x in data['numeros']]
+secuencia_longitud =  60 # la longitud de la secuencia de entrada
 X = []
 y = []
 for i in range(len(numeros) - secuencia_longitud):
