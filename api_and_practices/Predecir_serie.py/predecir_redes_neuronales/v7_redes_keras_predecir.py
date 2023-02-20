@@ -1,41 +1,73 @@
-import numpy as np
 import json
-from keras.models import load_model
-from keras.utils import np_utils
+import numpy as np
+import tensorflow as tf
+from datetime import datetime
 
+def guardar_prediccion(prediccion):
+    fecha_hora = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    prediccion_str = str(round(prediccion[0][0]))
+    try:
+        with open('numerosV7.json', 'r') as f:
+            data = json.load(f)
+    except:
+        data = {"predicciones": []}
+    predicciones = data.get('predicciones', [])
+    predicciones.append({'fecha_hora': fecha_hora, 'prediccion': prediccion_str})
+    with open('numerosV7.json', 'w') as f:
+        json.dump({'predicciones': predicciones}, f, indent=4)
 
-# Cargar los datos desde el archivo JSON
+# Cargar datos del archivo JSON
 with open('api_and_practices/Predecir_serie.py/predecir_redes_neuronales/numeros_ganadores.json') as f:
     data = json.load(f)
-    Num1 = data['Num1']
-    Num2 = data['Num2']
-    Num3 = data['Num3']
-    Num4 = data['Num4']
 
-# Crear una lista con las cifras de cada número
-numeros = []
-for i in range(len(Num1)):
-    cifras = [Num1[i], Num2[i], Num3[i], Num4[i]]
-    numeros.append(cifras)
+# Preprocesar los datos
+numeros = [int(x) for x in data['numeros']]
+secuencia_longitud = 80  # la longitud de la secuencia de entrada
+X = []
+y = []
+for i in range(len(numeros) - secuencia_longitud):
+    secuencia = numeros[i:i+secuencia_longitud]
+    objetivo = numeros[i+secuencia_longitud]
+    X.append(secuencia)
+    y.append(objetivo)
 
-# Crear los conjuntos de entrenamiento y prueba
-datos_entrenamiento = np.array(numeros[:len(numeros)-1])
-datos_prueba = np.array([numeros[len(numeros)-1]])
+# Convertir los datos a matrices numpy
+X = np.reshape(X, (len(X), secuencia_longitud, 1))
+X = X / float(9999)
+y = np.array(y)
+y = y / float(9999)
 
-# Convertir las cifras a valores entre 0 y 1 para el entrenamiento
-X_entrenamiento = datos_entrenamiento / 9
-y_entrenamiento = np_utils.to_categorical(np.array(numeros[1:]), num_classes=10)
+# Crear el modelo de RNN
+modelo = tf.keras.models.Sequential([
+    tf.keras.layers.LSTM(128, input_shape=(X.shape[1], X.shape[2])),
+    tf.keras.layers.Dense(1, activation='linear')
+])
 
-# Agregar una dimensión adicional a X_entrenamiento para representar los pasos de tiempo
-X_entrenamiento = np.reshape(X_entrenamiento, (X_entrenamiento.shape[0], X_entrenamiento.shape[1], 1))
+# Compilar el modelo
+modelo.compile(loss='mean_squared_error', optimizer='adam', metrics=['acc'])
 
-# Cargar el modelo guardado
-modelo_cargado = load_model('modelo.hdf5')
+# Entrenar el modelo
+modelo.fit(X, y, epochs=1000, batch_size=1000, verbose=2)
 
-# Utilizar el modelo para hacer una predicción sobre un número de 4 cifras
-dato_a_predecir = np.array([[0.1, 0.2, 0.3, 0.4]]) # ejemplo de dato a predecir
-dato_a_predecir = dato_a_predecir / 9 # convertir las cifras a valores entre 0 y 1
-dato_a_predecir = np.reshape(dato_a_predecir, (1, 4, 1)) # agregar una dimensión adicional para representar los pasos de tiempo
-prediccion = modelo_cargado.predict(dato_a_predecir) # hacer la predicción
-resultado = np.argmax(prediccion, axis=1) # obtener el índice del valor máximo de la predicción
-print(resultado)
+# Hacer una predicción
+entrada = np.array([numeros[-secuencia_longitud:]])
+entrada = entrada / float(9999)
+prediccion = modelo.predict(entrada, verbose=0)
+prediccion = prediccion * 9999
+
+# Repetir la predicción hasta que sea igual a 9200
+for i in range(10):
+    entrada = np.array([numeros[-secuencia_longitud:]])
+    entrada = entrada / float(9999)
+    prediccion = modelo.predict(entrada, verbose=2)
+    prediccion = prediccion * 9999
+    if round(prediccion[0][0]) == 9200:
+        break
+
+
+# Guardar los parámetros del modelo en un archivo
+modelo.save('modelo_entrenado.h5')
+
+print('Predicción: %d' % prediccion)
+
+guardar_prediccion(prediccion)
