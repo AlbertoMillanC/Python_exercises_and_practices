@@ -91,6 +91,38 @@
         {
             "fecha_hora": "2023-02-20 09:39:59",
             "prediccion v8": "2974"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:41:12",
+            "prediccion v7": "3536"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:42:22",
+            "prediccion v8": "4421"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:42:37",
+            "prediccion v7": "-550"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:43:11",
+            "prediccion v7": "4310"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:44:02",
+            "prediccion v8": "4354"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:50:04",
+            "prediccion v7": "4262"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:53:12",
+            "prediccion v7": "3929"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:55:35",
+            "prediccion v8": "4397"
         }
     ]
 }

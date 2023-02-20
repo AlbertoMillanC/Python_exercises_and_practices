@@ -47,7 +47,7 @@ modelo = tf.keras.models.Sequential([
 ])
 
 # Compilar el modelo
-modelo.compile(loss='huber_loss', optimizer='adam', metrics=['acc'])
+modelo.compile(loss='huber_loss', optimizer='adagrad', metrics=['acc'])
 
 # Entrenar el modelo
 modelo.fit(X, y, epochs=1000, batch_size=1000, verbose=2)

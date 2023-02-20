@@ -47,10 +47,10 @@ modelo = tf.keras.models.Sequential([
 ])
 
 # Compilar el modelo
-modelo.compile(loss='mean_absolute_error', optimizer='adam', metrics=['acc'])
+modelo.compile(loss='mean_squared_error', optimizer='adam', metrics=['mse'])
 
 # Entrenar el modelo
-modelo.fit(X, y, epochs=100, batch_size=100, verbose=3)
+modelo.fit(X, y, epochs=50, batch_size=32, verbose=3)
 
 # Hacer una predicción
 entrada = np.array([numeros[-secuencia_longitud:]])
