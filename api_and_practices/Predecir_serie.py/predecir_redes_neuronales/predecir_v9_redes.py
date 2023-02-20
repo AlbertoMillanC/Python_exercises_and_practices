@@ -2,9 +2,11 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from tensorflow import keras
+from sklearn.model_selection import train_test_split
+
 
 # Cargar los datos de entrada
-datos = pd.read_csv('datos_del_sorteo_comas.csv')
+datos = pd.read_csv('C:\\Users\\ASUS\\Desktop\\Python_exercises_and_practices\\Python_exercises_and_practices\\datos_del_sorteo_comas.csv')
 X = datos.drop('ganadora', axis=1).values
 y = datos['ganadora'].values
 
