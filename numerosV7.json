@@ -23,6 +23,74 @@
         {
             "fecha_hora": "2023-02-19 23:55:23",
             "prediccion": "2323"
+        },
+        {
+            "fecha_hora": "2023-02-20 01:06:10",
+            "prediccion v7": "2489"
+        },
+        {
+            "fecha_hora": "2023-02-20 01:22:42",
+            "prediccion v7": "3631"
+        },
+        {
+            "fecha_hora": "2023-02-20 01:41:02",
+            "prediccion v7": "-128"
+        },
+        {
+            "fecha_hora": "2023-02-20 03:04:11",
+            "prediccion v7": "4040"
+        },
+        {
+            "fecha_hora": "2023-02-20 08:56:03",
+            "prediccion v7": "4124"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:00:41",
+            "prediccion v7": "4621"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:01:58",
+            "prediccion v8": "2375"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:01:59",
+            "prediccion v8": "2807"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:03:20",
+            "prediccion v8": "4280"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:03:42",
+            "prediccion v7": "4318"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:04:38",
+            "prediccion v7": "4223"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:05:05",
+            "prediccion v8": "2514"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:20:06",
+            "prediccion v7": "4345"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:21:24",
+            "prediccion v8": "4328"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:38:48",
+            "prediccion v7": "3398"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:39:20",
+            "prediccion v8": "5447"
+        },
+        {
+            "fecha_hora": "2023-02-20 09:39:59",
+            "prediccion v8": "2974"
         }
     ]
 }
