@@ -9,8 +9,6 @@ from tensorflow.keras.models import load_model
 
 modelo = load_model('modelo_figuras.h5')
 
-
-
 # cargar los datos desde el archivo CSV
 data = pd.read_csv('datos_red_grupos8.csv')
 

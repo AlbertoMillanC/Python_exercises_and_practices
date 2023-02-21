@@ -4,6 +4,11 @@ import numpy as np
 import pandas as pd
 from tensorflow import keras
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import load_model
+from sklearn.metrics import mean_squared_error
+
+# cargar los datos ultimo entrenamiento
+modelo = load_model('modelo_figuras.h5')
 
 # cargar los datos desde el archivo CSV
 data = pd.read_csv('datos_red_grupos8.csv')
@@ -29,10 +34,12 @@ model.fit(X_train, y_train, epochs=40)
 # evaluar el modelo
 test_loss, test_mae = model.evaluate(X_test, y_test)
 print(f"Mean Absolute Error: {test_mae}")
+mse = mean_squared_error(y_train, y_train)
+print(f"MSE:{mse}")
 
 # guardar el modelo en un archivo
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-model.save(f'modelo_figuras_{timestamp}.h5')
+model.save(f'modelo_figuras.h5')
 
 # hacer predicciones
 nuevas_figuras = np.array([[9, 11, 6, 8], [1, 11, 3, 9], [9, 7, 7, 11]])
@@ -43,7 +50,7 @@ resultado = {
     'timestamp': datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
     'predicciones': predicciones.tolist()
 }
-with open(f'predicciones_figuras_{timestamp}.json', 'w') as f:
+with open(f'predicciones_figuras.json', 'w') as f:
     json.dump(resultado, f)
 
 print(resultado)
