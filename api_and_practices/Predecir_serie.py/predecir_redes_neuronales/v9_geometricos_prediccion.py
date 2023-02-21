@@ -4,6 +4,12 @@ import numpy as np
 import pandas as pd
 from tensorflow import keras
 from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import load_model
+
+
+modelo = load_model('modelo_figuras.h5')
+
+
 
 # cargar los datos desde el archivo CSV
 data = pd.read_csv('datos_red_grupos8.csv')
@@ -24,17 +30,17 @@ model = keras.Sequential([
 model.compile(optimizer='adam', loss='mean_squared_error')
 
 # entrenar el modelo
-model.fit(X_train, y_train, epochs=50)
+model.fit(X_train, y_train, epochs=40)
 
 # evaluar el modelo
 test_loss = model.evaluate(X_test, y_test)
 
 # guardar el modelo en un archivo
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-model.save(f'modelo_figuras_{timestamp}.h5')
+model.save(f'modelo_figuras.h5')
 
 # hacer predicciones
-nuevas_figuras = np.array([[4, 11, 6, 8], [1, 2, 3, 4], [7, 7, 7, 7]])
+nuevas_figuras = np.array([[9, 11, 6, 8], [1, 11, 3, 9], [9, 7, 7, 11]])
 predicciones = model.predict(nuevas_figuras)
 
 # guardar las predicciones en un archivo JSON con la hora en que se guarda
@@ -42,7 +48,7 @@ resultado = {
     'timestamp': datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"),
     'predicciones': predicciones.tolist()
 }
-with open(f'predicciones_figuras_{timestamp}.json', 'w') as f:
+with open(f'predicciones_figuras.json', 'w') as f:
     json.dump(resultado, f)
     
 print(resultado)
