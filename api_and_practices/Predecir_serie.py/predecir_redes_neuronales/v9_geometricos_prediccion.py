@@ -6,7 +6,7 @@ from tensorflow import keras
 from sklearn.model_selection import train_test_split
 
 # cargar los datos desde el archivo CSV
-data = pd.read_csv('datos_figuras.csv')
+data = pd.read_csv('datos_red_grupos8.csv')
 
 # dividir los datos en conjuntos de entrenamiento y prueba
 X = data.iloc[:, :-4]
@@ -44,3 +44,5 @@ resultado = {
 }
 with open(f'predicciones_figuras_{timestamp}.json', 'w') as f:
     json.dump(resultado, f)
+    
+print(resultado)
