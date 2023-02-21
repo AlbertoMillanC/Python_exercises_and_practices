@@ -20,8 +20,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # definir el modelo de la red neuronal
 model = keras.Sequential([
-    keras.layers.Dense(64, activation='relu', input_shape=[4]),
-    keras.layers.Dense(64, activation='relu'),
+    keras.layers.Dense(512, activation='relu', input_shape=[4]),
+    keras.layers.Dense(256, activation='relu'),
     keras.layers.Dense(4)
 ])
 
@@ -29,7 +29,7 @@ model = keras.Sequential([
 model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mae'])
 
 # entrenar el modelo
-model.fit(X_train, y_train, epochs=40)
+model.fit(X_train, y_train, epochs=1000)
 
 # evaluar el modelo
 test_loss, test_mae = model.evaluate(X_test, y_test)
@@ -42,7 +42,7 @@ timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 model.save(f'modelo_figuras.h5')
 
 # hacer predicciones
-nuevas_figuras = np.array([[9, 11, 6, 8], [1, 11, 3, 9], [9, 7, 7, 11]])
+nuevas_figuras = np.array([[9, 10, 6, 8], [1, 10, 3, 9], [9, 7, 7, 10]])
 predicciones = model.predict(nuevas_figuras)
 
 # guardar las predicciones en un archivo JSON con la hora en que se guarda

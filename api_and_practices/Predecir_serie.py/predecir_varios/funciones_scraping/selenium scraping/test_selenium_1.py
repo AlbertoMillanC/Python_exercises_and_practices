@@ -11,7 +11,7 @@ options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(options=options)
 
 # Abrir la página web
-url = 'https://ejemplo.com'
+url = 'https://www.colombialoterias.com/loteria-de-boyaca/'
 driver.get(url)
 
 # Esperar a que el botón se vuelva clickeable
