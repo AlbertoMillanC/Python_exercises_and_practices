@@ -1,4 +1,8 @@
 *.jpg
+*.json
+*.txt
+*.csv
+*.h5
 env/
 api_key.txt
 entorno/
@@ -6,7 +10,4 @@ entorno/
 env_nuevo/
 numeros_ganadores.json
 prediccion.txt
-*.json
-*.txt
-*.csv
-*.h5
+
