@@ -26,6 +26,9 @@ datos = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH
 # Extraer los datos y hacer el scraping
 datos_extraidos = datos.text
 # ...
+# Guardar los datos en un archivo de texto
+with open('datos_selenium.txt', 'w') as archivo:
+    archivo.write(datos_extraidos)
 
 # Cerrar el navegador
 driver.quit()

@@ -6,4 +6,7 @@ entorno/
 env_nuevo/
 numeros_ganadores.json
 prediccion.txt
-datos_boyaca.json
+*.json
+*.txt
+*.csv
+*.h5
