@@ -1,10 +1,13 @@
-### PYTHON
+### PYTHON 
 
 
 ## APIS Y MODELOS DE IA
-# api de mensajeria con ia.
-# api para redimencionar imagenes.
+    # Api de mensajeria con IA.
+    # Api para redimensionar imagenes.
+    others examples.
 
 ### INDEX A
 
+
 ### INDEX B
+    
