@@ -40,14 +40,14 @@ try:
     driver.switch_to.frame(editor_frame)
 
     # Escribimos texto en el editor
-    editor = driver.find_element_by_css_selector("#tinymce")
+    editor = driver.find_element(By.CSS_SELECTOR, "#tinymce")
     editor.send_keys("¡Hola, mundo!")
 
     # Cambiamos de vuelta al contenido principal
     driver.switch_to.default_content()
 
     # Cerramos sesión
-    driver.find_element_by_css_selector(".icon-2x.icon-signout").click()
+    driver.find_element(By.CSS_SELECTOR, ".icon-2x.icon-signout").click()
 
     # Verificamos que se cerró sesión correctamente
     WebDriverWait(driver, 10).until(
