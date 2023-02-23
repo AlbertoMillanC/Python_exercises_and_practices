@@ -23,6 +23,7 @@ try:
     password_field.send_keys("SuperSecretPassword!")
 
     # Hacemos clic en el botón de inicio de sesión
+    # Clicking on the login button.
     driver.find_element(By.CSS_SELECTOR, ".fa-sign-in").click()
 
     # Verificamos que se inició sesión correctamente
