@@ -1,56 +1,29 @@
-import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
+import time
 
-
-# Inicializamos el driver de Chrome
+# Inicializar el driver de Chrome
 driver = webdriver.Chrome()
 
-# Abrimos la página de inicio de sesión de The Internet
-driver.get("https://the-internet.herokuapp.com/login")
+# Abrir la página de la aplicación
+driver.get("https://the-internet.herokuapp.com/")
 
-time.sleep(15)
+# Hacer clic en el enlace "Dropdown"
+dropdown_link = driver.find_element(By.LINK_TEXT, "Dropdown")
+dropdown_link.click()
 
-# Ingresamos las credenciales de inicio de sesión
-username_field = driver.find_element(By.ID, "username")
-password_field = driver.find_element(By.ID,"password")
-username_field.send_keys("tomsmith")
-password_field.send_keys("SuperSecretPassword!")
+# Esperar a que se cargue la página
+time.sleep(2)
 
-# Hacemos clic en el botón de inicio de sesión
-driver.find_element(By.CSS_SELECTOR, ".fa-sign-in").click()
+# Seleccionar una opción del menú desplegable
+dropdown = Select(driver.find_element(By.ID, "dropdown"))
+options = dropdown.options
+for i in range(len(options)):
+    dropdown.select_by_index(i)
+    selected_option = dropdown.first_selected_option.text
+    print(f"Opción seleccionada: {selected_option}")
+    time.sleep(1)
 
-# Verificamos que se inició sesión correctamente
-WebDriverWait(driver, 10).until(
-    EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".flash.success"), "You logged into a secure area!")
-)
-
-# Navegamos a la página de WYSIWYG Editor
-driver.get("https://the-internet.herokuapp.com/tinymce")
-
-# Obtenemos el iframe que contiene el editor WYSIWYG
-editor_frame = driver.find_element(By.ID,"mce_0_ifr")
-
-# Cambiamos al iframe
-driver.switch_to.frame(editor_frame)
-
-# Escribimos texto en el editor
-editor = driver.find_element_by_css_selector("#tinymce")
-editor.send_keys("¡Hola, mundo!")
-
-# Cambiamos de vuelta al contenido principal
-driver.switch_to.default_content()
-
-# Cerramos sesión
-driver.find_element_by_css_selector(".icon-2x.icon-signout").click()
-
-# Verificamos que se cerró sesión correctamente
-WebDriverWait(driver, 10).until(
-    EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".flash.success"), "You logged out of the secure area!")
-)
-
-# Cerramos el driver
+# Cerrar el navegador
 driver.quit()

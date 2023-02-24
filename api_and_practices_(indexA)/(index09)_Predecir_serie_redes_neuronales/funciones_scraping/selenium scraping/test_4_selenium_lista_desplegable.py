@@ -12,14 +12,35 @@ try:
     driver = webdriver.Chrome()
 
     # Abrimos la página de inicio de sesión de The Internet
-    driver.get("https://www.colombialoterias.com/loteria-de-boyaca/")
+    driver.get("https://loteriadeboyaca.gov.co/inicio/")
 
  
+        # Esperar a que cargue el contenido
+    time.sleep(3)
+    
+    
+    driver.find_element(By.TAG_NAME, "Resultados").click()
+    
+
+    # Obtener todo el contenido de la página
+    contenido = driver.find_element(By.TAG_NAME, "Resultado").get_attribute("textContent")
+
+    # Guardar el contenido en un archivo de texto
+    with open("contenido.txt", "a") as archivo:
+        archivo.write(contenido)
+
     
     
     
-    driver.find_element(By.NAME, "Estadísticas").click()
-    
+    # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active").click()
+    # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active a").click()
+    # driver.find_element(By.CSS_SELECTOR, "..rrm-pages-tabs li.rrm-tab-link.active").click()
+    # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active a").click()
+    # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active").click()
+    # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active a").click()
+    # driver.find_element(By.CSS_SELECTOR, "..rrm-pages-tabs li.rrm-tab-link.active").click()
+       
+
    
 
     
