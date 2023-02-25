@@ -5,32 +5,83 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.support.ui import Select
 
 try:
     # Inicializamos el driver de Chrome
     driver = webdriver.Chrome()
 
     # Abrimos la página de inicio de sesión de The Internet
-    driver.get("https://loteriadeboyaca.gov.co/inicio/")
+    driver.get("https://loteriadeboyaca.gov.co/inicio/resultados/")
 
  
         # Esperar a que cargue el contenido
+    time.sleep(1)
+    
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Estadisticas").click()
     time.sleep(3)
-    
-    
-    driver.find_element(By.TAG_NAME, "Resultados").click()
-    
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Resultados").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Como").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Premios").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Como").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Promocional").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Resultados").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Premios").click()
+    time.sleep(3)
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Inicio").click()
+    time.sleep(3)
 
-    # Obtener todo el contenido de la página
-    contenido = driver.find_element(By.TAG_NAME, "Resultado").get_attribute("textContent")
+ 
+    
+    
+    
+    
+    #Obtener todo el contenido de la página
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "a").get_attribute("textContent")
 
-    # Guardar el contenido en un archivo de texto
+    
+     # Guardar el contenido en un archivo de texto
     with open("contenido.txt", "a") as archivo:
-        archivo.write(contenido)
+         archivo.write(login_form)
+
+    
 
     
     
+
+    # # Hacer clic en el enlace "Dropdown"
+    # dropdown_link = driver.find_element(By.CSS_SELECTOR, ".autocomplete-input::selection")
+    # dropdown_link.click()
+
+
+
+    # # Seleccionar una opción del menú desplegable
+    # dropdown = Select(driver.find_element(By.CSS_SELECTOR, ".autocomplete-input::selection"))
+    # options = dropdown.options
+    # for i in range(len(options)):
+    #     dropdown.select_by_index(i)
+    #     selected_option = dropdown.first_selected_option.text
+    #     print(f"Opción seleccionada: {selected_option}")
+    #     time.sleep(1)
+        
+    # 
+    # Cerrar el navegador
+    driver.quit()
+
+except NoSuchElementException as e:
+    print("No se encontró el elemento:", e)
+
+except ElementNotInteractableException as e:
+    print("El elemento no es interactuable:", e)
+
+except Exception as e:
+    print("Ocurrió una excepción no identificada:", e)
     
     # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active").click()
     # driver.find_element(By.CSS_SELECTOR, ".rrm-pages-tabs li.rrm-tab-link.active a").click()
@@ -99,11 +150,4 @@ try:
     # Cerramos el driver
     # driver.quit()
 
-except NoSuchElementException as e:
-    print("No se encontró el elemento:", e)
 
-except ElementNotInteractableException as e:
-    print("El elemento no es interactuable:", e)
-
-except Exception as e:
-    print("Ocurrió una excepción no identificada:", e)
