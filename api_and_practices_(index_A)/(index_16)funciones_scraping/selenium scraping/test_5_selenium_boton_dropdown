@@ -12,39 +12,37 @@ try:
     driver = webdriver.Chrome()
 
     # Abrimos la página de inicio de sesión de The Internet
-    driver.get("https://loteriadeboyaca.gov.co/inicio/resultados/")
-
+    driver.get("https://www.colombialoterias.com/loteria-de-boyaca/")
  
-        # Esperar a que cargue el contenido
+    # Esperar a que cargue el contenido
+    time.sleep(0)
+   
+    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, '3 Meses').click()
     time.sleep(1)
-    
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Estadisticas").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Resultados").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Como").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Premios").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Como").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Promocional").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Resultados").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Premios").click()
-    time.sleep(3)
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "Inicio").click()
-    time.sleep(3)
-
- 
-    
-    
-    
-    
     #Obtener todo el contenido de la página
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, "a").get_attribute("textContent")
-
+    login_form = driver.find_element(By.TAG_NAME, "section").get_attribute("textContent")
+    
+     # Guardar el contenido en un archivo de texto
+    with open("contenido.txt", "a") as archivo:
+         archivo.write(login_form)
+    
+    # # Hacer clic en el enlace "Dropdown"
+    dropdown_link = driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list")
+    dropdown_link.click()
+    time.sleep(1)
+    # # Seleccionar una opción del menú desplegable
+    dropdown = Select(driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list"))
+    options = dropdown.options
+    for i in range(len(options)):
+        dropdown.select_by_index(i)
+        selected_option = dropdown.first_selected_option.text
+        dropdown
+        # print(f"Opción seleccionada: {selected_option}")
+        time.sleep(1)
+        
+    # 
+    #Obtener todo el contenido de la página
+    login_form = driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list").get_attribute("textContent")
     
      # Guardar el contenido en un archivo de texto
     with open("contenido.txt", "a") as archivo:
@@ -55,22 +53,7 @@ try:
     
     
 
-    # # Hacer clic en el enlace "Dropdown"
-    # dropdown_link = driver.find_element(By.CSS_SELECTOR, ".autocomplete-input::selection")
-    # dropdown_link.click()
-
-
-
-    # # Seleccionar una opción del menú desplegable
-    # dropdown = Select(driver.find_element(By.CSS_SELECTOR, ".autocomplete-input::selection"))
-    # options = dropdown.options
-    # for i in range(len(options)):
-    #     dropdown.select_by_index(i)
-    #     selected_option = dropdown.first_selected_option.text
-    #     print(f"Opción seleccionada: {selected_option}")
-    #     time.sleep(1)
-        
-    # 
+    
     # Cerrar el navegador
     driver.quit()
 
