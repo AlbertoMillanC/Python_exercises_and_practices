@@ -18,13 +18,14 @@ try:
     time.sleep(0)
    
     login_form = driver.find_element(By.PARTIAL_LINK_TEXT, '3 Meses').click()
-    time.sleep(1)
+    time.sleep(2)
     #Obtener todo el contenido de la página
-    login_form = driver.find_element(By.TAG_NAME, "section").get_attribute("textContent")
+    login_form = driver.find_element(By.TAG_NAME, "div").get_attribute("textContent")
+    element = login_form[10] 
     
      # Guardar el contenido en un archivo de texto
     with open("contenido.txt", "a") as archivo:
-         archivo.write(login_form)
+         archivo.write(element)
     
     # # Hacer clic en el enlace "Dropdown"
     dropdown_link = driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list")
@@ -47,12 +48,6 @@ try:
      # Guardar el contenido en un archivo de texto
     with open("contenido.txt", "a") as archivo:
          archivo.write(login_form)
-
-    
-
-    
-    
-
     
     # Cerrar el navegador
     driver.quit()
