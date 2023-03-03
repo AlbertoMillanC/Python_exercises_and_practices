@@ -30,7 +30,7 @@ try:
     # # Hacer clic en el enlace "Dropdown"
     dropdown_link = driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list")
     dropdown_link.click()
-    time.sleep(1)
+    time.sleep(5)
     # # Seleccionar una opción del menú desplegable
     dropdown = Select(driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list"))
     options = dropdown.options
