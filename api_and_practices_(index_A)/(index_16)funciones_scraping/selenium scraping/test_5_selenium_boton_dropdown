@@ -17,8 +17,8 @@ try:
     # Esperar a que cargue el contenido
     time.sleep(0)
    
-    login_form = driver.find_element(By.PARTIAL_LINK_TEXT, '3 Meses').click()
-    time.sleep(2)
+    # login_form = driver.find_element(By.PARTIAL_LINK_TEXT, '3 Meses').click()
+    # time.sleep(2)
     #Obtener todo el contenido de la página
     login_form = driver.find_element(By.TAG_NAME, "div").get_attribute("textContent")
     element = login_form[10] 
@@ -30,7 +30,7 @@ try:
     # # Hacer clic en el enlace "Dropdown"
     dropdown_link = driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list")
     dropdown_link.click()
-    time.sleep(5)
+    # time.sleep(5)
     # # Seleccionar una opción del menú desplegable
     dropdown = Select(driver.find_element(By.CSS_SELECTOR, "#rrm-draws-datetime-list"))
     options = dropdown.options
@@ -38,8 +38,8 @@ try:
         dropdown.select_by_index(i)
         selected_option = dropdown.first_selected_option.text
         dropdown
-        # print(f"Opción seleccionada: {selected_option}")
-        time.sleep(1)
+        print(f"Opción seleccionada: {selected_option}")
+        time.sleep(5)
         
     # 
     #Obtener todo el contenido de la página
