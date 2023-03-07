@@ -10,7 +10,7 @@ for option in select.options:
     print(option.text)
     
     # Obtener el contenido HTML de la página
-    html_content = driver.find_element(By.TAG_NAME, "glyphicon glyphicon-chevron-down").get_attribute("innerHTML")
+    html_content = driver.find_element(By.CSS_SELECTOR, ".rrm-month-title").get_attribute("innerHTML")
     
     # Escribir el contenido HTML en un archivo de texto
     with open(f"{option.text}.txt", "w") as f:
