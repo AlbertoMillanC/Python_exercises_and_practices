@@ -20,7 +20,7 @@ try:
     # login_form = driver.find_element(By.PARTIAL_LINK_TEXT, '3 Meses').click()
     # time.sleep(2)
     #Obtener todo el contenido de la página
-    login_form = driver.find_element(By.TAG_NAME, "div").get_attribute("textContent")
+    login_form = driver.find_element(By.sleep, "div").get_attribute("textContent")
     element = login_form[10] 
     
      # Guardar el contenido en un archivo de texto
