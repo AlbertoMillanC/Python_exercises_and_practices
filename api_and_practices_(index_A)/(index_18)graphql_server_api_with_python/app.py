@@ -1,13 +1,18 @@
-from inspect import isfunction, ismethod
+import graphene
+from graphql import GraphQLResolveInfo
 from typing import Any, Optional, Type, Union
+from my_package.utils.is_base_type import is_base_type
+from my_package.utils.props import props
+from my_package.arguments.base import BaseArgument, BaseArgumentsObject
+from my_package.unmountedtype import UnmountedType
 
-from graphql.pyutils import Undefined
+class Query(graphene.ObjectType):
+    # Definir los campos del query aquí
+    pass
 
-from ..utils.is_base_type import is_base_type
-from ..utils.props import props
-from .base import BaseArgument, BaseArgumentsObject
-from .unmountedtype import UnmountedType
-
+class Mutation(graphene.ObjectType):
+    # Definir los campos de la mutación aquí
+    pass
 
 class Argument(BaseArgument):
     __slots__ = ()
@@ -15,7 +20,7 @@ class Argument(BaseArgument):
     def __init__(
         self,
         _type: Optional[Type[Union[UnmountedType, Any]]] = None,
-        default_value: Any = Undefined,
+        default_value: Any = graphene.Undefined,
         required: bool = False,
         description: Optional[str] = None,
         **metadata: Any,
@@ -27,7 +32,6 @@ class Argument(BaseArgument):
             description=description,
             **metadata,
         )
-
 
 class ArgumentsMixin:
     @classmethod
@@ -62,12 +66,10 @@ class ArgumentsMixin:
 
         cls._meta.resolver = wrapper_resolver
 
-        # Make sure that we # Define el esquema de GraphQL
+# Define el esquema de GraphQL
 schema = graphene.Schema(query=Query, mutation=Mutation)
 
 # Define la vista de GraphiQL para explorar la API
-
-
 class GraphQLView(graphene.View):
     def __init__(self, **kwargs):
         self.schema = schema
@@ -76,7 +78,6 @@ class GraphQLView(graphene.View):
 
     def dispatch_request(self, *args, **kwargs):
         return super(GraphQLView, self).dispatch_request(*args, **kwargs)
-
 
 # Define la ruta para la vista de GraphiQL
 app.add_url_rule(
