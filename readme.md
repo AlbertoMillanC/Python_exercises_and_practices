@@ -7,6 +7,8 @@
     # Api para redimensionar imagenes.
     others examples.
 
+
+
 ### INDEX A
 01 API OPEN GPT
      1.1 open
