@@ -13,11 +13,11 @@
 01 API OPEN GPT
      1.1 open
 02 API SERVER MOVIES
-     2.1
+     2.1 
      2.2
 03 BARCODE
-     3.1
-     3.2
+     3.1 barcode.py
+     3.2 writer.py
 04 BOT WHATSAPP
      4.1
      4.2
