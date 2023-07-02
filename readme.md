@@ -1,4 +1,4 @@
-### PYTHON:
+### PYTHON archivos para varios proyectos. de
 
 
 ## APIS Y MODELOS DE IA:
