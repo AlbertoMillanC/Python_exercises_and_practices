@@ -1,7 +1,7 @@
 # ejericio 5: mostrar si un estudiante está habilitado para 
 # presentar el test
 # si el estudiante fue a mas del 75% de las clases 
-# puede hacer el examen
+# puede hacer el examennnn
 # si el estudiante fue a menos del 75% de las clases, 
 # solo puede hacer el examen
 # si tiene excusa médica
